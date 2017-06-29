@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ClassNameDemo</title>
+    <style>
+        .pp {
+            display: block;
+            color: blue;
+            width: 100%;
+        }
+
+        .p1 {
+            display: none;
+        }
+
+        div {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+    <script>
+        function getCl() {
+            var pragram = document.getElementsByClassName("pp");
+            for (var i = 0; i < pragram.length; i++) {
+                alert(pragram[i].innerHTML);
+            }
+        }
+        function out() {
+            var pragram = document.getElementsByTagName("ul")[0];
+            //pragram.className = "pp";
+            pragram.style.display = "block";
+        }
+        function over() {
+            var pragram = document.getElementsByTagName("ul")[0];
+            // pragram.className = "p1";
+            pragram.style.display = "none";
+        }
+        //        function getStyle(){
+        //            var pragram = document.getElementsByClassName("pp")[0];
+        //            var v = pragram.getAttribute("name");
+        //            alert(v);//获得元素的属性值
+        //            alert(pragram.style.color);//获得元素的属性值,只能是行内样式才可以显示
+        //        }
+
+        function getStyle(obj, attr) {
+            // var p = document.getElementsByTagName("p")[0];
+            //var v = p.currentStyle.display;//MS浏览器支持的写法
+            var v = document.defaultView.getComputedStyle(obj, null)[attr];
+            alert(v);
+            return v;
+        }
+        function showStyle() {
+            var p = document.getElementsByTagName("p")[0];
+            var v = getStyle(p, "display");//参数是string
+            alert(v == "block");
+        }
+
+    </script>
+</head>
+<body>
+<div>
+    <p class="pp" name="param">1、这是p标签</p>
+</div>
+<!--<p class="pp p1">2、这是p标签</p>-->
+<!--<p class="pp p1">3、这是p标签</p>-->
+<button type="button" onclick="showStyle();" onmouseover="over()" onmouseout="out()">Show P inneHTML</button>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>

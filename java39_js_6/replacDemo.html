@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReplaceDemo</title>
+    <script>
+        function  ch(t) {
+            var h1= document.getElementsByTagName("h1")[0];
+            var h2= document.getElementsByTagName("h1")[1];
+            var p = t.parentNode;
+            p.replaceChild(h1,h2);
+            h1.style.color="red";
+        }
+        function  chA(t) {
+            t.style.background="blue";
+            t.style.color="white";
+            t.style.fontSize="30px";
+            t.style.lineHeight="30px";
+        }
+        function  chB() {
+           var bt = document.getElementsByTagName("button")[0];
+            bt.style.background="blue";
+        }
+        function  cl() {
+            var bt = document.getElementsByTagName("button")[0];
+            bt.style.background="buttonface";
+        }
+    </script>
+</head>
+<body>
+    <h1>1、这是第一个H1</h1>
+    <h1>2、这是第二个H1</h1>
+    <p  onclick="chA(this)">这是p标签</p>
+    <button type="button" onclick="ch(this)" onmouseover="chB()" onmouseout="cl()">Use 1 Replace 2</button>
+</body>
+</html>
